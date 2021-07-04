@@ -40,7 +40,7 @@ $(function() {
         e.preventDefault()
         // 2) 发起Ajax的post请求
         $.post(
-            'http://api-breakingnews-web.itheima.net/api/reguser',
+            '/api/reguser',
             {
                 username: $("#form_reg [name=username]").val(),
                 password: $("#form_reg [name=password]").val()
@@ -66,7 +66,9 @@ $(function() {
             data: $(this).serialize(),
             success: function (res) {
                 if(res.status !== 0) {
-                    return layer.mag('登录失败！')
+                    // return layer.mag('登录失败！')
+                    console.log(res);
+                    return alert('登录失败')
                 } 
                 layer.msg('登录成功')
                 console.log(res.token)
